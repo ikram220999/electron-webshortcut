@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>OK</title>
+    <style>
+       *{
+        width: auto;
+        height: 80px;
+       }
+
+       .asd{
+        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(104deg) brightness(103%) contrast(103%);
+       }
+    </style>
+  </head>
+<script src="./main.js"></script>
+  <script>
+    const {ipcRenderer} = require('electron');
+
+    function selectedIcon(b) {
+      var c = b;
+        var a = document.getElementById("icon");
+        changePage(c)
+    }
+
+    function changePage(a){
+      ipcRenderer.send("msg", a);
+    }
+  </script>
+  
+  <body>
+    <div class=" flex flex-row gap-6 px-6 py-2 items-center" >
+      <button id="icon" class="w-16 h-16 shadow-md rounded-lg flex flex-col justify-center items-center
+       hover:shadow-md hover:shadow-red-500 transition-shadow cursor-pointer" onclick="selectedIcon('youtube')">
+        <img src="./icon/youtube.svg" class="w-8 h-8">
+        <!-- <p>Youtube</p> -->
+    </button>
+      <button id="icon" class="w-16 h-16 shadow-md rounded-lg flex flex-col justify-center items-center
+       hover:shadow-md hover:shadow-blue-500 transition-shadow cursor-pointer" onclick="selectedIcon('google')">
+        <img src="./icon/google-brands.svg" class="w-8 h-8">
+        <!-- <p>Google</p> -->
+      </button>
+      <button id="icon" class="w-16 h-16 shadow-md rounded-lg flex flex-col justify-center items-center
+       hover:shadow-md hover:shadow-orange-500 transition-shadow cursor-pointer" onclick="selectedIcon('stackoverflow')">
+        <img src="./icon/stack-overflow-brands.svg" class="w-8 h-8">
+        <!-- <p>Stack Overflow</p> -->
+      </button>
+      <button id="icon" class="w-16 h-16 shadow-md rounded-lg flex flex-col justify-center items-center
+       hover:shadow-md hover:shadow-gray-500 transition-shadow cursor-pointer" onclick="selectedIcon('github')">
+        <img src="./icon/github-brands.svg" class="w-8 h-8">
+        <!-- <p>Github</p> -->
+      </button>
+
+      <div class="border-l-2 border-gray-200 h-16"></div>
+      
+      <button class="w-12 h-10 shadow-sm rounded-lg flex flex-col justify-center items-center bg-red-500
+      hover:shadow-sm hover:shadow-red-300 transition-shadow cursor-pointer fill-white">
+          <img src="./icon/plus-solid.svg" alt="" class="w-6 h-6 text-red-500 asd ">
+      </button>
+    </div>
+  </body> 
+  
+ 
+</html>
